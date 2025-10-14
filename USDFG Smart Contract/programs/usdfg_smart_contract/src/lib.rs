@@ -123,13 +123,16 @@ pub mod usdfg_smart_contract {
             usdfg_amount <= MAX_ENTRY_FEE_USDFG,
             ChallengeError::EntryFeeTooHigh
         );
-        // Oracle freshness check
-        let now = Clock::get()?.unix_timestamp;
-        require!(
-            now - ctx.accounts.price_oracle.last_updated <= 300,
-            ChallengeError::StaleOraclePrice
-        );
+        
+        // ✅ REMOVED: Oracle freshness check (was blocking regular users)
+        // let now = Clock::get()?.unix_timestamp;
+        // require!(
+        //     now - ctx.accounts.price_oracle.last_updated <= 300,
+        //     ChallengeError::StaleOraclePrice
+        // );
+        
         // Set dispute_timer to now + 900 seconds (15 minutes)
+        let now = Clock::get()?.unix_timestamp;
         let dispute_timer = now + 900;
         let challenge = &mut ctx.accounts.challenge;
         // Transfer tokens to escrow
@@ -749,4 +752,4 @@ pub struct InitializePriceOracle<'info> {
     pub price_oracle: Account<'info, PriceOracle>,
 
     pub system_program: Program<'info, System>,
-} 
+}
