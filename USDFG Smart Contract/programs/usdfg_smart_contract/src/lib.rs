@@ -125,16 +125,13 @@ pub mod usdfg_smart_contract {
         );
         
         // ✅ REMOVED: Oracle freshness check (was blocking regular users)
-        // let now = Clock::get()?.unix_timestamp;
-        // require!(
-        //     now - ctx.accounts.price_oracle.last_updated <= 300,
-        //     ChallengeError::StaleOraclePrice
-        // );
+        // Oracle check completely removed - not needed for USDFG native token
         
         // Set dispute_timer to now + 900 seconds (15 minutes)
         let now = Clock::get()?.unix_timestamp;
         let dispute_timer = now + 900;
         let challenge = &mut ctx.accounts.challenge;
+        
         // Transfer tokens to escrow
         let cpi_accounts = Transfer {
             from: ctx.accounts.creator_token_account.to_account_info(),
@@ -146,6 +143,7 @@ pub mod usdfg_smart_contract {
             cpi_accounts,
         );
         token::transfer(cpi_ctx, usdfg_amount)?;
+        
         // Initialize challenge
         challenge.creator = ctx.accounts.creator.key();
         challenge.challenger = None;
@@ -155,11 +153,13 @@ pub mod usdfg_smart_contract {
         challenge.last_updated = now;
         challenge.processing = false;
         challenge.dispute_timer = dispute_timer;
+        
         emit!(ChallengeCreated {
             creator: challenge.creator,
             amount: challenge.entry_fee,
             timestamp: challenge.created_at,
         });
+        
         Ok(())
     }
 
@@ -274,6 +274,7 @@ pub mod usdfg_smart_contract {
         let challenge = &mut ctx.accounts.challenge;
         require!(!challenge.processing, ChallengeError::ReentrancyDetected);
         challenge.processing = true;
+        
         // Security: Verify admin state is active
         require!(
             ctx.accounts.admin_state.is_active,
@@ -288,8 +289,10 @@ pub mod usdfg_smart_contract {
             Clock::get()?.unix_timestamp < challenge.dispute_timer,
             ChallengeError::ChallengeExpired
         );
+        
         challenge.status = ChallengeStatus::Cancelled;
         challenge.last_updated = Clock::get()?.unix_timestamp;
+        
         // Return tokens to creator
         let cpi_accounts = Transfer {
             from: ctx.accounts.escrow_token_account.to_account_info(),
@@ -301,6 +304,7 @@ pub mod usdfg_smart_contract {
             cpi_accounts,
         );
         token::transfer(cpi_ctx, challenge.entry_fee)?;
+        
         emit!(RefundIssued {
             challenge: challenge.key(),
             recipient: challenge.creator,
@@ -315,6 +319,7 @@ pub mod usdfg_smart_contract {
         let challenge = &mut ctx.accounts.challenge;
         require!(!challenge.processing, ChallengeError::ReentrancyDetected);
         challenge.processing = true;
+        
         // Only creator can claim
         require!(ctx.accounts.creator.key() == challenge.creator, ChallengeError::Unauthorized);
         // Only if open and expired
@@ -322,8 +327,10 @@ pub mod usdfg_smart_contract {
         require!(Clock::get()?.unix_timestamp >= challenge.dispute_timer, ChallengeError::ChallengeNotExpired);
         // No challenger
         require!(challenge.challenger.is_none(), ChallengeError::AlreadyAccepted);
+        
         challenge.status = ChallengeStatus::Cancelled;
         challenge.last_updated = Clock::get()?.unix_timestamp;
+        
         // Return tokens to creator
         let cpi_accounts = Transfer {
             from: ctx.accounts.escrow_token_account.to_account_info(),
@@ -335,6 +342,7 @@ pub mod usdfg_smart_contract {
             cpi_accounts,
         );
         token::transfer(cpi_ctx, challenge.entry_fee)?;
+        
         emit!(RefundIssued {
             challenge: challenge.key(),
             recipient: challenge.creator,
@@ -450,6 +458,7 @@ impl AdminState {
         8; // last_updated
 }
 
+// ✅ FIXED: Removed oracle accounts from CreateChallenge
 #[derive(Accounts)]
 #[instruction(entry_fee: u64)]
 pub struct CreateChallenge<'info> {
@@ -480,9 +489,7 @@ pub struct CreateChallenge<'info> {
     pub system_program: Program<'info, System>,
     pub token_program: Program<'info, Token>,
     pub rent: Sysvar<'info, Rent>,
-    #[account(seeds = [PRICE_ORACLE_SEED], bump)]
-    pub price_oracle: Account<'info, PriceOracle>,
-    pub admin_state: Account<'info, AdminState>,
+    // ✅ REMOVED: Oracle accounts - no longer needed for challenge creation
     pub mint: Account<'info, Mint>,
 }
 
@@ -612,7 +619,7 @@ impl Challenge {
         1 + 32 + // winner (Option<Pubkey>)
         8 + // created_at
         8 + // last_updated
-        32; // token_mint
+        1; // processing
 }
 
 #[error_code]
@@ -645,8 +652,7 @@ pub enum ChallengeError {
     AdminInactive,
     #[msg("Invalid admin")]
     InvalidAdmin,
-    #[msg("Oracle price is too old")]
-    StaleOraclePrice,
+    // ✅ REMOVED: StaleOraclePrice error - no longer needed
     #[msg("Reentrancy detected")] 
     ReentrancyDetected,
     #[msg("Challenge already accepted")]
