@@ -1,0 +1,10 @@
+/Users/husseinali/Downloads/usdfg-smart-contract-main/USDFG Smart Contract V1/target/release/deps/version_check-6674eb67f6ea6d92.rmeta: /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/lib.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/version.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/channel.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/date.rs
+
+/Users/husseinali/Downloads/usdfg-smart-contract-main/USDFG Smart Contract V1/target/release/deps/libversion_check-6674eb67f6ea6d92.rlib: /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/lib.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/version.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/channel.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/date.rs
+
+/Users/husseinali/Downloads/usdfg-smart-contract-main/USDFG Smart Contract V1/target/release/deps/version_check-6674eb67f6ea6d92.d: /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/lib.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/version.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/channel.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/date.rs
+
+/Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/lib.rs:
+/Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/version.rs:
+/Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/channel.rs:
+/Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.5/src/date.rs:

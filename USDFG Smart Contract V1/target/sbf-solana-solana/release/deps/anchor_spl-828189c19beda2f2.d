@@ -1,0 +1,10 @@
+/Users/husseinali/Downloads/usdfg-smart-contract-main/USDFG Smart Contract V1/target/sbf-solana-solana/release/deps/anchor_spl-828189c19beda2f2.rmeta: /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/lib.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/associated_token.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/mint.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/token.rs
+
+/Users/husseinali/Downloads/usdfg-smart-contract-main/USDFG Smart Contract V1/target/sbf-solana-solana/release/deps/libanchor_spl-828189c19beda2f2.rlib: /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/lib.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/associated_token.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/mint.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/token.rs
+
+/Users/husseinali/Downloads/usdfg-smart-contract-main/USDFG Smart Contract V1/target/sbf-solana-solana/release/deps/anchor_spl-828189c19beda2f2.d: /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/lib.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/associated_token.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/mint.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/token.rs
+
+/Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/lib.rs:
+/Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/associated_token.rs:
+/Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/mint.rs:
+/Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/anchor-spl-0.26.0/src/token.rs:

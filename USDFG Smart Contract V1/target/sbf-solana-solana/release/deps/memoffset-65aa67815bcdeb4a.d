@@ -1,0 +1,10 @@
+/Users/husseinali/Downloads/usdfg-smart-contract-main/USDFG Smart Contract V1/target/sbf-solana-solana/release/deps/memoffset-65aa67815bcdeb4a.rmeta: /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/lib.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/raw_field.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/offset_of.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/span_of.rs
+
+/Users/husseinali/Downloads/usdfg-smart-contract-main/USDFG Smart Contract V1/target/sbf-solana-solana/release/deps/libmemoffset-65aa67815bcdeb4a.rlib: /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/lib.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/raw_field.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/offset_of.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/span_of.rs
+
+/Users/husseinali/Downloads/usdfg-smart-contract-main/USDFG Smart Contract V1/target/sbf-solana-solana/release/deps/memoffset-65aa67815bcdeb4a.d: /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/lib.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/raw_field.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/offset_of.rs /Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/span_of.rs
+
+/Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/lib.rs:
+/Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/raw_field.rs:
+/Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/offset_of.rs:
+/Users/husseinali/.cargo/registry/src/github.com-1ecc6299db9ec823/memoffset-0.9.1/src/span_of.rs:

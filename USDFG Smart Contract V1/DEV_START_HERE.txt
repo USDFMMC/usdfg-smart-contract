@@ -1,0 +1,70 @@
+Hey Dev!
+
+Here's everything you need to get started with the USDFG smart contract on Solana devnet.  
+You'll find a zip file with all the essentials. Here's what to do:
+
+---
+
+1. Unzip the Package
+--------------------
+- Unzip `usdfg_devnet_package_v2.zip`.
+- Inside, you'll find:
+  - `USDFG_DEVNET_README.txt` (integration guide)
+  - `usdfg_smart_contract.json` (IDL)
+  - `Anchor.toml`, contract source, and test file
+
+2. Connect to Devnet
+--------------------
+- Make sure your frontend is set to use the Solana devnet cluster:
+  ```js
+  clusterApiUrl('devnet')
+  ```
+
+3. Load the Program
+-------------------
+- Use the **Program ID** from the README:
+  ```
+  2KL4BKvUtDmABvuvRopkCEb33myWM1W9BGodAZ82RWDT
+  ```
+- Load the IDL (`usdfg_smart_contract.json`) in your Anchor or web3.js client.
+
+4. Derive All PDAs
+------------------
+- Use the PDA derivation seeds in the README to get:
+  - Admin state
+  - Price oracle
+  - Challenge accounts
+  - Escrow wallet
+  - Escrow token accounts
+- Example (web3.js):
+  ```js
+  const [challengePDA] = await PublicKey.findProgramAddress(
+    [
+      Buffer.from('challenge'),
+      creatorPublicKey.toBuffer(),
+      challengeSeedPublicKey.toBuffer()
+    ],
+    programId
+  );
+  ```
+
+5. USDFG Mint Address
+---------------------
+- Use the USDFG mint address provided in the README (or ask for it if not filled in).
+
+6. Test the Flows
+-----------------
+- Try creating a challenge, accepting, resolving, and refunding.
+- All token flows are in USDFG (no USDC).
+- The price oracle is for display only.
+
+7. No Private Keys Needed
+-------------------------
+- You do NOT need any wallet seeds or private keys from me.
+- Use your own devnet wallet for testing.
+
+8. Need Help?
+-------------
+- If you need example code, sample transactions, or run into any issues, just ping me!
+
+Let's make this frontend awesome! 🚀 

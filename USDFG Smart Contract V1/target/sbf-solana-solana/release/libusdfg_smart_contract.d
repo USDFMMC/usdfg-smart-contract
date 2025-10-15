@@ -1,0 +1,1 @@
+/Users/husseinali/Downloads/usdfg-smart-contract-main/USDFG\ Smart\ Contract\ V1/target/sbf-solana-solana/release/libusdfg_smart_contract.rlib: /Users/husseinali/Downloads/usdfg-smart-contract-main/USDFG\ Smart\ Contract\ V1/programs/usdfg_smart_contract/src/lib.rs
