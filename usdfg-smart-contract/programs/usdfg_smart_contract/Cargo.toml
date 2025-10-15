@@ -1,0 +1,22 @@
+[package]
+name = "usdfg_smart_contract"
+version = "0.1.0"
+description = "USDFG Smart Contract"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "usdfg_smart_contract"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.27.0"
+anchor-spl = { version = "0.27.0", features = ["token"] }
+solana-program = "1.17.17"
+spl-token = { version = "3.5.0", features = ["no-entrypoint"] }
