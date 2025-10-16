@@ -1,0 +1,9 @@
+/Users/husseinali/Downloads/CryptoTracker 2/USDFGAMING-full-project/USDFG GitHub/usdfg-smart-contract/target/release/deps/spl_discriminator_syn-c2b7f3bfb8e9098a.d: /Users/husseinali/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-discriminator-syn-0.2.1/src/lib.rs /Users/husseinali/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-discriminator-syn-0.2.1/src/error.rs /Users/husseinali/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-discriminator-syn-0.2.1/src/parser.rs
+
+/Users/husseinali/Downloads/CryptoTracker 2/USDFGAMING-full-project/USDFG GitHub/usdfg-smart-contract/target/release/deps/libspl_discriminator_syn-c2b7f3bfb8e9098a.rlib: /Users/husseinali/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-discriminator-syn-0.2.1/src/lib.rs /Users/husseinali/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-discriminator-syn-0.2.1/src/error.rs /Users/husseinali/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-discriminator-syn-0.2.1/src/parser.rs
+
+/Users/husseinali/Downloads/CryptoTracker 2/USDFGAMING-full-project/USDFG GitHub/usdfg-smart-contract/target/release/deps/libspl_discriminator_syn-c2b7f3bfb8e9098a.rmeta: /Users/husseinali/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-discriminator-syn-0.2.1/src/lib.rs /Users/husseinali/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-discriminator-syn-0.2.1/src/error.rs /Users/husseinali/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-discriminator-syn-0.2.1/src/parser.rs
+
+/Users/husseinali/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-discriminator-syn-0.2.1/src/lib.rs:
+/Users/husseinali/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-discriminator-syn-0.2.1/src/error.rs:
+/Users/husseinali/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-discriminator-syn-0.2.1/src/parser.rs:

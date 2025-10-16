@@ -1,0 +1,1 @@
+{"rustc":9783247635632824192,"features":"[]","declared_features":"[]","target":14520901741915772287,"profile":4612982300659644141,"path":13615457279533248344,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/strsim-9aa7083d516293a8/dep-lib-strsim","checksum":false}}],"rustflags":["-C","target-feature=+crt-static"],"config":2069994364910194474,"compile_kind":0}

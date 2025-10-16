@@ -1,0 +1,1 @@
+/Users/husseinali/Downloads/CryptoTracker\ 2/USDFGAMING-full-project/USDFG\ GitHub/usdfg-smart-contract/target/release/libusdfg_smart_contract.rlib: /Users/husseinali/Downloads/CryptoTracker\ 2/USDFGAMING-full-project/USDFG\ GitHub/usdfg-smart-contract/programs/usdfg_smart_contract/src/lib.rs

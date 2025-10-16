@@ -1,13 +1,7 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{self, Token, TokenAccount, Transfer, Mint};
-use solana_program::pubkey;
-use solana_program::program::invoke_signed;
-use spl_token;
 
 declare_id!("J6pYAhJ6RSaXHeyg1YtC387arz524m51sie7muEpeC1k");
-
-// Price oracle PDA seeds
-const PRICE_ORACLE_SEED: &[u8] = b"price_oracle";
 
 // Static escrow wallet address
 pub const ESCROW_WALLET_SEED: &[u8] = b"escrow_wallet";
@@ -35,17 +29,6 @@ pub mod usdfg_smart_contract {
         Ok(())
     }
 
-    pub fn initialize_price_oracle(ctx: Context<InitializePriceOracle>) -> Result<()> {
-        require!(
-            ctx.accounts.admin_state.admin == ctx.accounts.admin.key(),
-            ChallengeError::InvalidAdmin
-        );
-
-        let price_oracle = &mut ctx.accounts.price_oracle;
-        price_oracle.price = 1000; // Default price of $10.00 (1000 cents)
-        price_oracle.last_updated = Clock::get()?.unix_timestamp;
-        Ok(())
-    }
 
     pub fn update_admin(ctx: Context<UpdateAdmin>, new_admin: Pubkey) -> Result<()> {
         let admin_state = &mut ctx.accounts.admin_state;
@@ -101,17 +84,6 @@ pub mod usdfg_smart_contract {
         Ok(())
     }
 
-    pub fn update_price(ctx: Context<UpdatePrice>, price: u64) -> Result<()> {
-        require!(
-            ctx.accounts.admin_state.admin == ctx.accounts.admin.key(),
-            ChallengeError::InvalidAdmin
-        );
-
-        let price_oracle = &mut ctx.accounts.price_oracle;
-        price_oracle.price = price;
-        price_oracle.last_updated = Clock::get()?.unix_timestamp;
-        Ok(())
-    }
 
     pub fn create_challenge(ctx: Context<CreateChallenge>, usdfg_amount: u64) -> Result<()> {
         // Validate entry fee limits
@@ -244,7 +216,7 @@ pub mod usdfg_smart_contract {
             ESCROW_WALLET_SEED,
             challenge.to_account_info().key.as_ref(),
             ctx.accounts.mint.to_account_info().key.as_ref(),
-            &[*ctx.bumps.get("escrow_token_account").unwrap()]
+            &[ctx.bumps.escrow_token_account]
         ];
         let signer_seeds = [&escrow_seeds[..]];
 
@@ -422,25 +394,6 @@ pub struct RevokeAdmin<'info> {
     pub current_admin: Signer<'info>,
 }
 
-#[derive(Accounts)]
-pub struct UpdatePrice<'info> {
-    #[account(mut)]
-    pub admin: Signer<'info>,
-
-    #[account(
-        mut,
-        seeds = [b"admin"],
-        bump
-    )]
-    pub admin_state: Account<'info, AdminState>,
-
-    #[account(
-        mut,
-        seeds = [PRICE_ORACLE_SEED],
-        bump
-    )]
-    pub price_oracle: Account<'info, PriceOracle>,
-}
 
 #[account]
 pub struct AdminState {
@@ -730,32 +683,3 @@ pub struct RefundIssued {
     pub timestamp: i64,
 }
 
-#[account]
-pub struct PriceOracle {
-    pub price: u64,        // Price in cents (e.g., 1000 = $10.00)
-    pub last_updated: i64,
-}
-
-#[derive(Accounts)]
-pub struct InitializePriceOracle<'info> {
-    #[account(mut)]
-    pub admin: Signer<'info>,
-
-    #[account(
-        mut,
-        seeds = [b"admin"],
-        bump
-    )]
-    pub admin_state: Account<'info, AdminState>,
-
-    #[account(
-        init,
-        payer = admin,
-        space = 8 + 8 + 8, // discriminator + price + last_updated
-        seeds = [PRICE_ORACLE_SEED],
-        bump
-    )]
-    pub price_oracle: Account<'info, PriceOracle>,
-
-    pub system_program: Program<'info, System>,
-}
